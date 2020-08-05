@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var totalCasesCard: UIView!
+    @IBOutlet weak var recoveredCard: UIView!
+    @IBOutlet weak var testedCard: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello world")
+        totalCasesCard.layer.cornerRadius = 8
+        recoveredCard.layer.cornerRadius = 8
+        testedCard.layer.cornerRadius = 8
     }
 
 
