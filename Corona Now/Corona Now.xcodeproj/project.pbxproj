@@ -58,13 +58,37 @@
 			children = (
 				C85BC72E24DA62D200D87CDD /* AppDelegate.swift */,
 				C85BC73024DA62D200D87CDD /* SceneDelegate.swift */,
-				C85BC73224DA62D200D87CDD /* ViewController.swift */,
-				C85BC73424DA62D200D87CDD /* Main.storyboard */,
+				C85BC74524DA636400D87CDD /* Model */,
+				C85BC74224DA633100D87CDD /* View */,
+				C85BC74324DA634800D87CDD /* Controller */,
 				C85BC73724DA62D300D87CDD /* Assets.xcassets */,
 				C85BC73924DA62D300D87CDD /* LaunchScreen.storyboard */,
 				C85BC73C24DA62D300D87CDD /* Info.plist */,
 			);
 			path = "Corona Now";
+			sourceTree = "<group>";
+		};
+		C85BC74224DA633100D87CDD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C85BC73424DA62D200D87CDD /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C85BC74324DA634800D87CDD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C85BC73224DA62D200D87CDD /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C85BC74524DA636400D87CDD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
