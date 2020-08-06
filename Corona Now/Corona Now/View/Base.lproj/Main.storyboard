@@ -35,7 +35,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RGV-LO-Lns">
                                 <rect key="frame" x="20" y="166" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="D07-ed-oGa">
                                 <rect key="frame" x="117" y="230" width="180.5" height="66.5"/>
@@ -187,8 +187,12 @@
                     </view>
                     <connections>
                         <outlet property="recoveredCard" destination="s8C-04-WCX" id="13k-QI-ceG"/>
+                        <outlet property="recoveredCasesNumberLabel" destination="ts7-yZ-j6j" id="B18-sk-g13"/>
+                        <outlet property="searchTextField" destination="RGV-LO-Lns" id="VGb-oD-4eA"/>
                         <outlet property="testedCard" destination="gab-04-yOB" id="YTL-mZ-AuX"/>
+                        <outlet property="testedCasesNumberLabel" destination="ARR-hL-BMR" id="NK2-WS-ZnK"/>
                         <outlet property="totalCasesCard" destination="gv2-t0-JA4" id="TFE-Ro-K9G"/>
+                        <outlet property="totalCasesNumberLabel" destination="EY4-AI-NBu" id="dWC-aC-yGC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
