@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol CountryManagerDelegate {
+    func didGetCountry(_ countryManager: CountryManager, country: CountryModel)
+    func didFailWithError(error: Error)
+}
+
 struct CountryManager {
     let initalQueryURL = "https://disease.sh/v3/covid-19/countries/"
+    var delegate: CountryManagerDelegate?
     
     ///  This method will take care of joining the users country to the initialQueryURL for the API call
     func fetchCountry(countryName: String) {
@@ -40,14 +46,16 @@ struct CountryManager {
                 
                 // If error is not equal to nil, then the API request failed
                 if error != nil {
-                    print(error!)
+                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 
                 // If data is not equals to nil, then data will be assigned to safeData thus making the statement true
                 if let safeData = data {
                     if let country = self.parseJSON(safeData) {
-                        
+                        DispatchQueue.main.async {
+                            self.delegate?.didGetCountry(self, country: country)
+                        }
                     }
                 }
             }
@@ -62,8 +70,11 @@ struct CountryManager {
         let decoder = JSONDecoder()
         
         do {
+            
+            // Will contain all the data if sucessful decoding
             let decodedData = try decoder.decode(CountryModel.self, from: countryData)
             
+            // Create instandce of Country that will be returned and used for the view
             let returnCountry = CountryModel(country: decodedData.country, cases: decodedData.cases, recovered: decodedData.recovered, tests: decodedData.tests)
             
             return returnCountry

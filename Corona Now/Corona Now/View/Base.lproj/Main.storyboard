@@ -186,6 +186,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="countryLabel" destination="zJc-6I-IHV" id="ghE-5r-FxY"/>
                         <outlet property="recoveredCard" destination="s8C-04-WCX" id="13k-QI-ceG"/>
                         <outlet property="recoveredCasesNumberLabel" destination="ts7-yZ-j6j" id="B18-sk-g13"/>
                         <outlet property="searchTextField" destination="RGV-LO-Lns" id="VGb-oD-4eA"/>

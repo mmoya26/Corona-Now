@@ -19,13 +19,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalCasesNumberLabel: UILabel!
     @IBOutlet weak var recoveredCasesNumberLabel: UILabel!
     @IBOutlet weak var testedCasesNumberLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
     
-    let countryManager = CountryManager()
+    var countryManager = CountryManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchTextField.delegate = self
+        countryManager.delegate = self
         
         totalCasesCard.layer.cornerRadius = 8
         recoveredCard.layer.cornerRadius = 8
@@ -54,6 +56,19 @@ extension ViewController: UITextFieldDelegate {
         
         // Set the text field input to be blank
         searchTextField.text = ""
+    }
+}
+
+extension ViewController: CountryManagerDelegate {
+    func didGetCountry(_ countryManager: CountryManager, country: CountryModel) {
+        countryLabel.text = country.country
+        totalCasesNumberLabel.text = String(country.cases)
+        recoveredCasesNumberLabel.text = String(country.recovered)
+        testedCasesNumberLabel.text = String(country.tests)
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
     }
 }
 
