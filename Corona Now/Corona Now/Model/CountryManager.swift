@@ -46,7 +46,9 @@ struct CountryManager {
                 
                 // If data is not equals to nil, then data will be assigned to safeData thus making the statement true
                 if let safeData = data {
-                    self.parseJSON(safeData)
+                    if let country = self.parseJSON(safeData) {
+                        
+                    }
                 }
             }
             
@@ -55,13 +57,20 @@ struct CountryManager {
         }
     }
     
-    func parseJSON(_ countryData: Data) {
+    /// Handles decoding the JSON data
+    func parseJSON(_ countryData: Data) -> CountryModel? {
         let decoder = JSONDecoder()
         
         do {
+            let decodedData = try decoder.decode(CountryModel.self, from: countryData)
+            
+            let returnCountry = CountryModel(country: decodedData.country, cases: decodedData.cases, recovered: decodedData.recovered, tests: decodedData.tests)
+            
+            return returnCountry
             
         } catch {
             print(error)
+            return nil
         }
     }
 }
