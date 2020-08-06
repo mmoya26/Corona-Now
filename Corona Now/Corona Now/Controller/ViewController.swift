@@ -20,20 +20,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var recoveredCasesNumberLabel: UILabel!
     @IBOutlet weak var testedCasesNumberLabel: UILabel!
     
+    let countryManager = CountryManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         searchTextField.delegate = self
-        
         
         totalCasesCard.layer.cornerRadius = 8
         recoveredCard.layer.cornerRadius = 8
         testedCard.layer.cornerRadius = 8
         
     }
-    
-    
 }
 
 //MARK: - UITextFieldDelegate Extension
@@ -50,6 +48,8 @@ extension ViewController: UITextFieldDelegate {
         if let country = textField.text {
             // If there is input in the text field, then.
             print("User typed: \(country)")
+            
+            countryManager.fetchCountry(countryName: country)
         }
         
         // Set the text field input to be blank
